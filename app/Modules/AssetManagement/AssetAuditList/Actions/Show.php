@@ -6,7 +6,7 @@ namespace App\Modules\AssetManagement\AssetAuditList\Actions;
 
 class Show
 {
-    static $model = \App\Modules\AssetManagement\AssetAuditList\Model::class;
+    static $model = \App\Modules\AssetManagement\AssetAuditList\Models\Model::class;
 
     public static function execute($id)
     {

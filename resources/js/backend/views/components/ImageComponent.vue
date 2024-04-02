@@ -1,10 +1,10 @@
 <template>
     <div>
         <!-- {{ component_images }} -->
-        <input @change="preview" class="form-control" type="file" ref="input_files" :accept="accept" :class="classNames" :name="name"
-            :multiple="multiple">
-        <div class="uploaded_image_preview my-2 d-flex gap-1 flex-wrap">
-            <img v-for="i in images" :key="i" :src="i" class="img-fulid img-thumbnail" style="width: 80px; height: 80px;
+        <input @change="preview" class="form-control" type="file" ref="input_files" :accept="accept" :class="classNames"
+            :name="name" :multiple="multiple">
+        <div class="uploaded_image_preview my-2 d-flex gap-1 flex-wrap" v-if="component_images[0] != ''">
+            <img v-for="i in component_images" :key="i" :src="i" class="img-fulid img-thumbnail" style="width: 80px; height: 80px;
                 object-fit: contain;">
         </div>
     </div>
@@ -35,9 +35,12 @@ export default {
         component_images: [],
     }),
     watch: {
-        images: function(v){
+        images: function (v) {
             this.component_images = this.images;
         }
+    },
+    created: function () {
+        this.component_images = this.images;
     },
     methods: {
         preview: function () {
@@ -51,6 +54,7 @@ export default {
                 };
                 reader.readAsDataURL(el);
             })
+            console.log(that.component_images);
         }
     }
 }

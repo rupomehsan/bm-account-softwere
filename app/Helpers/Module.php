@@ -392,7 +392,7 @@ if (!function_exists('validation')) {
         return $content;
     }
 }
-if (!function_exists('Modules')) {
+if (!function_exists('api')) {
     function api($moduleName)
     {
         $route_name = Str::plural((Str::kebab($moduleName)));
@@ -532,7 +532,23 @@ if (!function_exists('model')) {
 if (!function_exists('migration')) {
     function migration($moduleName, $fields)
     {
-        $table_name = Str::plural((Str::snake($moduleName)));
+
+        $table_name = '';
+        $formated_module = explode('/', $moduleName);
+
+        if (count($formated_module) > 1) {
+
+
+            $moduleName = implode('/', $formated_module);
+            $moduleName = Str::replace("/", "\\", $moduleName);
+            $table_name = Str::plural((Str::snake($formated_module[count($formated_module) - 1])));
+        } else {
+            $table_name = Str::plural((Str::snake($moduleName)));
+            $moduleName = Str::replace("/", "\\", $moduleName);
+            // dd($moduleName);
+        }
+
+        // dd($table_name);
 
 
 
@@ -563,19 +579,25 @@ if (!function_exists('migration')) {
                 }
                 if (count($fieldName) > 1) {
                     $type = $fieldName[1];
-                    if ($type == 'text') {
+                    if ($type == 'string') {
                         $type =  'string';
-                    } elseif ($type == 'longtext') {
+                    } elseif ($type == 'longtext' || $type == 'text') {
                         $type =  'text';
-                    } elseif ($type == 'number') {
+                    } elseif ($type == 'number' || $type == 'integer') {
                         $type = 'bigInteger';
-                    } elseif ($type == 'boolean') {
+                    } elseif ($type == 'boolean' || $type == 'tinyint') {
                         $type =  'tinyInteger';
+                    } elseif ($type == 'date') {
+                        $type =  'date';
+                    } elseif ($type == 'enum') {
+                        $type =  'enum';
+                    } elseif ($type == 'float') {
+                        $type =  'float';
                     } else {
                         $type =  'string';
                     }
 
-                    $content .= "            \$table->{$type}('{$fieldName[0]}')->nullable();\n";
+                    $content .= $type == 'enum' ? "            \$table->{$type}('{$fieldName[0]}',['value1','value2'])->nullable();\n" : "            \$table->{$type}('{$fieldName[0]}')->nullable();\n";
                 }
             }
         }

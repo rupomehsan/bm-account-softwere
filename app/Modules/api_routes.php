@@ -15,23 +15,22 @@ include_once  base_path("app/Modules/AccountManagement/AccountNumber/Route.php")
 include_once  base_path("app/Modules/AppSetting/Route.php");
 
 include_once  base_path("app/Modules/SohidFamily/Route.php");
-
-include_once  base_path("app/Modules/AssetManagement/Asset/Route.php");
+//asset management
+include_once  base_path("app/Modules/AssetManagement/AssetCategory/Route.php");
+include_once  base_path("app/Modules/AssetManagement/AssetLost/Route.php");
 include_once  base_path("app/Modules/AssetManagement/Asset/Route.php");
 include_once  base_path("app/Modules/AssetManagement/AssetAudit/Route.php");
 include_once  base_path("app/Modules/AssetManagement/AssetAuditList/Route.php");
 include_once  base_path("app/Modules/AssetManagement/AssetBrand/Route.php");
-include_once  base_path("app/Modules/AssetManagement/AssetBrand/Route.php");
-include_once  base_path("app/Modules/AssetManagement/AssetCategory/Route.php");
 include_once  base_path("app/Modules/AssetManagement/AssetChangeHistory/Route.php");
 include_once  base_path("app/Modules/AssetManagement/AssetItem/Route.php");
-include_once  base_path("app/Modules/AssetManagement/AssetLost/Route.php");
-include_once  base_path("app/Modules/AssetManagement/AssetQuotation/Route.php");
-include_once  base_path("app/Modules/AssetManagement/AssetRequestToCp/Route.php");
 include_once  base_path("app/Modules/AssetManagement/AssetShopList/Route.php");
 include_once  base_path("app/Modules/AssetManagement/AssetWaranty/Route.php");
-include_once  base_path("app/Modules/AssetManagement/QuotationProduct/Route.php");
-include_once  base_path("app/Modules/AssetManagement/QuotationProductPrice/Route.php");
+
+// include_once  base_path("app/Modules/AssetManagement/AssetQuotation/Route.php");
+// include_once  base_path("app/Modules/AssetManagement/AssetRequestToCp/Route.php");
+// include_once  base_path("app/Modules/AssetManagement/QuotationProduct/Route.php");
+// include_once  base_path("app/Modules/AssetManagement/QuotationProductPrice/Route.php");
 
 include_once  base_path("app/Modules/CpApplication/Route.php");
 include_once  base_path("app/Modules/CpApplicationCategory/Route.php");

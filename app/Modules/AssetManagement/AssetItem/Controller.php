@@ -7,7 +7,8 @@ use App\Modules\AssetManagement\AssetItem\Actions\Delete;
 use App\Modules\AssetManagement\AssetItem\Actions\Show;
 use App\Modules\AssetManagement\AssetItem\Actions\Store;
 use App\Modules\AssetManagement\AssetItem\Actions\Update;
-use App\Modules\AssetManagement\AssetItem\Actions\Validation;
+use App\Modules\AssetManagement\AssetItem\Validations\Validation;
+use App\Modules\AssetManagement\AssetItem\Actions\BulkActions;
 use App\Http\Controllers\Controller as ControllersController;
 
 
@@ -32,7 +33,7 @@ class Controller extends ControllersController
         return $data;
     }
 
-     public function update(Validation $request, $id)
+    public function update(Validation $request, $id)
     {
         $data = Update::execute($request, $id);
         return $data;
@@ -43,4 +44,10 @@ class Controller extends ControllersController
         $data = Delete::execute($id);
         return $data;
     }
+    public function bulkAction()
+    {
+        $data = BulkActions::execute();
+        return $data;
+    }
+
 }

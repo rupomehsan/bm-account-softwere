@@ -3,9 +3,10 @@
 namespace App\Modules\AssetManagement\AssetShopList\Actions;
 
 
+
 class Show
 {
-    static $model = \App\Modules\AssetManagement\AssetShopList\Model::class;
+    static $model = \App\Modules\AssetManagement\AssetShopList\Models\Model::class;
 
     public static function execute($id)
     {

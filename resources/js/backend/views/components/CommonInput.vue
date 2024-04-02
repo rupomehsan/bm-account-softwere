@@ -123,9 +123,9 @@ export default {
 
     created: function () {
 
-        console.log("dd",this.value);
-        this.searchInput = this.value.name
-        this.searchInputValue = this.value.id
+        // console.log("dd",this.value);
+        this.searchInput = this.value?.name
+        this.searchInputValue = this.value?.id
     },
 
     data() {

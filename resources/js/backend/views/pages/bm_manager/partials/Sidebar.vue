@@ -3,20 +3,14 @@
         <!--Page Sidebar Start-->
         <div class="sidebar-user text-center">
             <div>
-                <img
-                    class="img-50 rounded-circle"
-                    src="/backend/assets/images/1.jpg"
-                    alt="#"
-                />
+                <img class="img-50 rounded-circle" src="/backend/assets/images/1.jpg" alt="#" />
             </div>
             <h6 class="mt-3 f-12">Admin</h6>
         </div>
         <div class="sidebar-menu">
             <li class="my-2 d-flex align-items-center gap-2">
                 <i class="icon-desktop"></i>
-                <router-link :to="{ name: `bmManagerDashboard` }"
-                    >Dashboard</router-link
-                >
+                <router-link :to="{ name: `bmManagerDashboard` }">Dashboard</router-link>
             </li>
             <!-- <li class="my-2 d-flex align-items-center gap-2">
                 <i class="icon-desktop"></i>
@@ -38,20 +32,12 @@
             </li> -->
             <li class="my-2 d-flex align-items-center gap-2">
                 <i class="icon-desktop"></i>
-                <router-link
-                    :to="{ name: `AllBranchTarget` }"
-                    class="d-flex align-items-center"
-                    href=""
-                    >Branch Target</router-link
-                >
+                <router-link :to="{ name: `AllBranchTarget` }" class="d-flex align-items-center" href="">Branch
+                    Target</router-link>
             </li>
             <li class="my-2 d-flex align-items-center gap-2">
                 <i class="icon-desktop"></i>
-                <router-link
-                    :to="{ name: `AllIncome` }"
-                    class="d-flex align-items-center"
-                    href=""
-                    > Income
+                <router-link :to="{ name: `AllIncome` }" class="d-flex align-items-center" href=""> Income
                 </router-link>
             </li>
             <!-- <li class="my-2 d-flex align-items-center gap-2">
@@ -94,22 +80,14 @@
             </li> -->
             <li class="my-2 d-flex align-items-center gap-2">
                 <i class="icon-desktop"></i>
-                <router-link
-                    :to="{ name: `AllPaymentMethod` }"
-                    class="d-flex align-items-center"
-                    href=""
-                    >Accounts</router-link
-                >
+                <router-link :to="{ name: `AllPaymentMethod` }" class="d-flex align-items-center"
+                    href="">Accounts</router-link>
             </li>
 
             <li class="my-2 d-flex align-items-center gap-2">
                 <i class="icon-desktop"></i>
-                <router-link
-                    :to="{ name: `AllAccountCategory` }"
-                    class="d-flex align-items-center"
-                    href=""
-                    >Account Category</router-link
-                >
+                <router-link :to="{ name: `AllAccountCategory` }" class="d-flex align-items-center" href="">Account
+                    Category</router-link>
             </li>
             <!-- <li class="my-2 d-flex align-items-center gap-2">
                 <i class="icon-desktop"></i>
@@ -204,78 +182,77 @@
             </li> -->
             <li class="my-2 d-flex align-items-center gap-2">
                 <i class="icon-desktop"></i>
-                <router-link
-                    :to="{ name: `AllUser` }"
-                    class="d-flex align-items-center"
-                    href=""
-                    >Users</router-link
-                >
+                <router-link :to="{ name: `AllUser` }" class="d-flex align-items-center" href="">Users</router-link>
             </li>
-            <!-- <li @click="toggleMenu">
+            <li @click="toggleMenu">
                 <a href="javascript:void(0)" class="sidebar-header">
-                    <i class="icon-blackboard"></i
-                    ><span class="text-capitalize">Vouchers</span>
+                    <i class="icon-blackboard"></i><span class="text-capitalize">Asset Management</span>
                     <i class="fa fa-angle-right pull-right"></i>
                 </a>
                 <ul :class="submenu ? 'menu-open' : ''" class="sidebar-submenu">
                     <li>
-                        <router-link
-                            :to="{ name: `BmSetMonthForVouchers` }"
-                            href="general-widget.html"
-                            ><i class="fa fa-angle-right"></i>Set
-                            Month</router-link
-                        >
+                        <router-link :to="{ name: `AllAssetCategory` }" href="general-widget.html"><i
+                                class="fa fa-angle-right"></i>Category</router-link>
                     </li>
                     <li>
-                        <router-link
-                            :to="{ name: `BmAllVouchers` }"
-                            href="general-widget.html"
-                            ><i class="fa fa-angle-right"></i>All bm
-                            vouchers</router-link
-                        >
+                        <router-link :to="{ name: `AllAssetLost` }" href="general-widget.html"><i
+                                class="fa fa-angle-right"></i>Asset lost</router-link>
                     </li>
                     <li>
-                        <router-link :to="{ name: `BmNotApprovedByBmVoucher` }"
-                            ><i class="fa fa-angle-right"></i>Not approved by
-                            bm</router-link
-                        >
+                        <router-link :to="{ name: `AllAsset` }" href="general-widget.html"><i
+                                class="fa fa-angle-right"></i>Asset</router-link>
                     </li>
                     <li>
-                        <router-link
-                            :to="{ name: `BmNotApprovedByCpVoucher` }"
-                            href="chart-widget.html"
-                            ><i class="fa fa-angle-right"></i>Not approved by
-                            cp</router-link
-                        >
+                        <router-link :to="{ name: `AllAssetAudit` }" href="general-widget.html"><i
+                                class="fa fa-angle-right"></i>Asset audit</router-link>
+                    </li>
+
+                    <li>
+                        <router-link :to="{ name: `AllAssetAuditList` }" href="general-widget.html"><i
+                                class="fa fa-angle-right"></i>Asset Audit list</router-link>
+                    </li>
+
+                    <li>
+                        <router-link :to="{ name: `AllAssetBrand` }" href="general-widget.html"><i
+                                class="fa fa-angle-right"></i>Asset brand</router-link>
+                    </li>
+
+                    <li>
+                        <router-link :to="{ name: `AllAssetChangeHistory` }" href="general-widget.html"><i
+                                class="fa fa-angle-right"></i>Asset change history</router-link>
+                    </li>
+                    <li>
+                        <router-link :to="{ name: `AllAssetItem` }" href="general-widget.html"><i
+                                class="fa fa-angle-right"></i>Asset item</router-link>
+                    </li>
+
+                    <li>
+                        <router-link :to="{ name: `AllAssetShopList` }" href="general-widget.html"><i
+                                class="fa fa-angle-right"></i>Asset shop list</router-link>
+                    </li>
+
+                    <li>
+                        <router-link :to="{ name: `AllAssetWaranty` }" href="general-widget.html"><i
+                                class="fa fa-angle-right"></i>Asset waranty</router-link>
                     </li>
                 </ul>
-            </li> -->
+            </li>
 
             <li @click="toggleMenu">
                 <a href="javascript:void(0)" class="sidebar-header">
-                    <i class="icon-blackboard"></i
-                    ><span class="text-capitalize">Reports</span>
+                    <i class="icon-blackboard"></i><span class="text-capitalize">Reports</span>
                     <i class="fa fa-angle-right pull-right"></i>
                 </a>
                 <ul class="menu-open sidebar-submenu">
                     <li>
-                        <router-link
-                            :to="{ name: `bmMainLedger` }"
-                            href="general-widget.html"
-                        >
-                            <i class="fa fa-angle-right"></i>Cash Book</router-link
-                        >
+                        <router-link :to="{ name: `bmMainLedger` }" href="general-widget.html">
+                            <i class="fa fa-angle-right"></i>Cash Book</router-link>
                     </li>
                     <li>
-                        <router-link
-                            :to="{ name: `bmIncomeLedger` }"
-                            href="general-widget.html"
-                        >
-                            <i class="fa fa-angle-right"></i
-                            >Income Ledger</router-link
-                        >
+                        <router-link :to="{ name: `bmIncomeLedger` }" href="general-widget.html">
+                            <i class="fa fa-angle-right"></i>Income Ledger</router-link>
                     </li>
-                     <!--
+                    <!--
                     <li>
                         <router-link
                             :to="{ name: `bmLoanRegister` }"

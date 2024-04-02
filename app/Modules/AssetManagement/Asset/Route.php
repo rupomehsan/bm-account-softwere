@@ -5,4 +5,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('v1')->group(function () {
     Route::apiResource('assets', Controller::class);
+    Route::post('assets/bulk-action', [Controller::class, 'bulkAction']);
 });

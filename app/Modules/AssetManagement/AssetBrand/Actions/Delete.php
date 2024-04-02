@@ -4,7 +4,7 @@ namespace App\Modules\AssetManagement\AssetBrand\Actions;
 
 class Delete
 {
-    static $model = \App\Modules\AssetManagement\AssetBrand\Model::class;
+    static $model = \App\Modules\AssetManagement\AssetBrand\Models\Model::class;
 
     public static function execute($id)
     {
@@ -13,7 +13,7 @@ class Delete
                 return messageResponse('Data not found...', 404, 'error');
             }
             $data->delete();
-            return messageResponse('Item successfully deleted', 200, 'success');
+            return messageResponse('Item Successfully deleted', 200, 'success');
         } catch (\Exception $e) {
             return messageResponse($e->getMessage(), 500, 'server_error');
         }

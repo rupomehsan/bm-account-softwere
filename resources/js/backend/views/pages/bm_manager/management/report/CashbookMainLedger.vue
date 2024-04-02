@@ -150,7 +150,7 @@ export default {
         let that = this
         setTimeout(function () {
             that.SubmitHandler()
-        }, 2000)
+        }, 1000)
         this.loaded = true
     },
     methods: {

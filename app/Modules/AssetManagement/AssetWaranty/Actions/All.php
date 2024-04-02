@@ -4,7 +4,7 @@ namespace App\Modules\AssetManagement\AssetWaranty\Actions;
 
 class All
 {
-    static $model = \App\Modules\AssetManagement\AssetWaranty\Model::class;
+    static $model = \App\Modules\AssetManagement\AssetWaranty\Models\Model::class;
 
     public static function execute()
     {

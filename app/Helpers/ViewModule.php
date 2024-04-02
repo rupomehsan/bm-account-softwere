@@ -3,11 +3,10 @@
 use Illuminate\Support\Str;
 
 if (!function_exists('viewAll')) {
-    function viewAll($moduleName)
+    function viewAll($moduleName, $fields)
     {
-        $model = Str::plural((Str::kebab($moduleName)));
-        $moduleName = Str::singular((Str::snake($moduleName)));
 
+        $moduleName = Str::singular((Str::snake($moduleName)));
         $content = <<<"EOD"
                     <template>
                     <div class="page-body">
@@ -91,12 +90,14 @@ if (!function_exists('viewAll')) {
                                                     ID
                                                     <!---->
                                                 </th>
-                                                <th class="cursor_n_resize">
-                                                title
-                                                    <!---->
-                                                </th>
-
-                                                <th class="cursor_n_resize">
+            EOD;
+        if (count($fields)) {
+            foreach ($fields as $fieldName) {
+                $content .=  "<th class='cursor_n_resize'>  $fieldName[0] </th> \n";
+            }
+        }
+        $content .= <<<"EOD"
+                                                 <th class="cursor_n_resize">
                                                 status
                                                     <!---->
                                                 </th>
@@ -105,15 +106,18 @@ if (!function_exists('viewAll')) {
                                         </thead>
 
                                         <tbody class="table-border-bottom-0" v-if="loaded">
-                                            <tr v-for="(item, index) in all_data.data" :key="item.id">
+                                            <tr v-for="(item, index) in all_data.data" :key="index">
                                                 <!-- <td>
                                                     <input type="checkbox" class="form-check-input" />
                                                 </td> -->
                                                 <td>{{ item.id }}</td>
-                                                <td>
-                                                    {{ item.title}}
-                                                </td>
-
+            EOD;
+        if (count($fields)) {
+            foreach ($fields as $fieldName) {
+                $content .=  "<th class='cursor_n_resize'> {{ item.$fieldName[0]}} </th> \n";
+            }
+        }
+        $content .= <<<"EOD"
                                                 <td>
                                                     {{ item.status }}
                                                 </td>
@@ -420,9 +424,10 @@ if (!function_exists('ViewFormField')) {
         if (count($fields)) {
             foreach ($fields as $fieldName) {
                 // dd($fieldName);
+                $label = Str::of($fieldName[0])->snake()->replace('_', ' ');
                 $content .= "\n\t{\n";
                 $content .= "\t\tname: \"$fieldName[0]\",\n";
-                $content .= "\t\tlabel: \"Enter your $fieldName[0]\",\n";
+                $content .= "\t\tlabel: \"Enter your $label\",\n";
 
                 if (count($fieldName) > 1) {
                     $type = $fieldName[1];
@@ -430,7 +435,11 @@ if (!function_exists('ViewFormField')) {
                         case 'longtext':
                             $content .= "\t\ttype: \"textarea\",\n";
                             break;
+                        case 'date':
+                            $content .= "\t\ttype: \"date\",\n";
+                            break;
                         case 'number':
+                        case 'integer':
                             $content .= "\t\ttype: \"number\",\n";
                             break;
                         case 'file':
@@ -439,9 +448,9 @@ if (!function_exists('ViewFormField')) {
                             break;
                         case 'select':
                         case 'boolean':
+                        case 'tinyint':
                             $content .= "\t\ttype: \"select\",\n";
-                            $content .= "\t\tlabel: \"Select default $fieldName[0]\",\n";
-                            $content .= "\t\tvalue: \"\",\n";
+                            $content .= "\t\tlabel: \"Select default  $label\",\n";
                             $content .= "\t\tmultiple: false,\n";
                             $content .= "\t\tdata_list: [\n";
                             $content .= "\t\t\t{\n";

@@ -4,7 +4,7 @@ namespace App\Modules\AssetManagement\AssetChangeHistory\Actions;
 
 class All
 {
-    static $model = \App\Modules\AssetManagement\AssetChangeHistory\Model::class;
+    static $model = \App\Modules\AssetManagement\AssetChangeHistory\Models\Model::class;
 
     public static function execute()
     {

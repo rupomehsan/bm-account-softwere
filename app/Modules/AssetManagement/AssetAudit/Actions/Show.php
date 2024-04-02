@@ -2,9 +2,11 @@
 
 namespace App\Modules\AssetManagement\AssetAudit\Actions;
 
+
+
 class Show
 {
-    static $model = \App\Modules\AssetManagement\AssetAudit\Model::class;
+    static $model = \App\Modules\AssetManagement\AssetAudit\Models\Model::class;
 
     public static function execute($id)
     {

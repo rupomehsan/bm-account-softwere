@@ -175,6 +175,9 @@ export default {
         to_date: async function () {
             await this.fetch_income_ledger(this.from_date, this.to_date);
         },
+        from_date: async function () {
+            await this.fetch_income_ledger(this.from_date, this.to_date);
+        },
     },
 };
 </script>

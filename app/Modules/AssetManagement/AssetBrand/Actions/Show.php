@@ -6,7 +6,7 @@ namespace App\Modules\AssetManagement\AssetBrand\Actions;
 
 class Show
 {
-    static $model = \App\Modules\AssetManagement\AssetBrand\Model::class;
+    static $model = \App\Modules\AssetManagement\AssetBrand\Models\Model::class;
 
     public static function execute($id)
     {

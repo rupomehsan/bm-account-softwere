@@ -4,7 +4,7 @@ namespace App\Modules\AssetManagement\AssetCategory\Actions;
 
 class All
 {
-    static $model = \App\Modules\AssetManagement\AssetCategory\Model::class;
+    static $model = \App\Modules\AssetManagement\AssetCategory\Models\Model::class;
 
     public static function execute()
     {

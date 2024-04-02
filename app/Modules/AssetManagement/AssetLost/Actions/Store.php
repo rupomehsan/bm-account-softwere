@@ -2,17 +2,18 @@
 
 namespace App\Modules\AssetManagement\AssetLost\Actions;
 
-use App\Modules\AssetManagement\AssetLost\Actions\Validation;
-use Illuminate\Support\Facades\Hash;
+use App\Modules\AssetManagement\AssetLost\Validations\Validation;
+
 
 class Store
 {
-    static $model = \App\Modules\AssetManagement\AssetLost\Model::class;
+    static $model = \App\Modules\AssetManagement\AssetLost\Models\Model::class;
 
     public static function execute(Validation $request)
     {
         try {
-            if (self::$model::query()->create($request->validated())) {
+            $requestData = $request->validated();
+            if (self::$model::query()->create($requestData)) {
                 return messageResponse('Item added successfully', 201);
             }
         } catch (\Exception $e) {

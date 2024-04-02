@@ -2,12 +2,11 @@
 
 namespace App\Modules\AssetManagement\AssetRequestToCp\Actions;
 
-use App\Modules\AssetRequestToCp\Actions\Validation;
-use Illuminate\Support\Facades\Hash;
+
 
 class Show
 {
-    static $model = \App\Modules\AssetManagement\AssetRequestToCp\Model::class;
+    static $model = \App\Modules\AssetManagement\AssetRequestToCp\Models\Model::class;
 
     public static function execute($id)
     {
