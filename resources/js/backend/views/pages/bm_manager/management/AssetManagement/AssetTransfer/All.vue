@@ -1,5 +1,5 @@
-        <template>
-        <div class="page-body">
+<template>
+    <div class="page-body">
         <div class="pt-2">
             <div class="page-header my-2">
                 <div class="row align-items-center rounded-2 justify-content-between">
@@ -7,7 +7,7 @@
                         <h5 class="m-0 text-capitalize"> {{ page_title }}</h5>
                     </div>
                     <div v-if="child_items.length" class="btn-group m-1 col-lg-4"
-                         onclick="document.getElementById('table-actions').classList.toggle('show')">
+                        onclick="document.getElementById('table-actions').classList.toggle('show')">
                         <button type="button" class="btn btn-light waves-effect waves-light">Actions</button>
                         <button type="button"
                             class="btn btn-light split-btn-light dropdown-toggle dropdown-toggle-split waves-effect waves-light"
@@ -24,7 +24,8 @@
                     </div>
                     <div class="col-lg-4 text-end">
                         <span>
-                            <router-link :to="{ name: `Create${route_prefix}` }" class="btn rounded-pill btn-outline-info">
+                            <router-link :to="{ name: `Create${route_prefix}` }"
+                                class="btn rounded-pill btn-outline-info">
                                 <i class="fa fa-pencil me-5px"></i>
                                 Create
                             </router-link>
@@ -79,15 +80,16 @@
                                     <th aria-label="id" class="cursor_n_resize">
                                         ID
                                         <!---->
-                                    </th><th class='cursor_n_resize'>  asset_id </th> 
-<th class='cursor_n_resize'>  sender_id </th> 
-<th class='cursor_n_resize'>  receiver_id </th> 
-<th class='cursor_n_resize'>  is_accepted_by_receiver </th> 
-<th class='cursor_n_resize'>  accepted_date </th> 
-<th class='cursor_n_resize'>  request_date </th> 
-<th class='cursor_n_resize'>  desctiption </th> 
-                                     <th class="cursor_n_resize">
-                                    status
+                                    </th>
+                                    <th class='cursor_n_resize'> asset_id </th>
+                                    <th class='cursor_n_resize'> sender </th>
+                                    <th class='cursor_n_resize'> receiver </th>
+                                    <th class='cursor_n_resize'> is accepted by receiver </th>
+                                    <th class='cursor_n_resize'> accepted date </th>
+                                    <th class='cursor_n_resize'> request date </th>
+                                    <th class='cursor_n_resize'> desctiption </th>
+                                    <th class="cursor_n_resize">
+                                        status
                                         <!---->
                                     </th>
                                     <th aria-label="actions">Actions</th>
@@ -99,22 +101,23 @@
                                     <!-- <td>
                                         <input type="checkbox" class="form-check-input" />
                                     </td> -->
-                                    <td>{{ item.id }}</td><th class='cursor_n_resize'> {{ item.asset_id}} </th> 
-<th class='cursor_n_resize'> {{ item.sender_id}} </th> 
-<th class='cursor_n_resize'> {{ item.receiver_id}} </th> 
-<th class='cursor_n_resize'> {{ item.is_accepted_by_receiver}} </th> 
-<th class='cursor_n_resize'> {{ item.accepted_date}} </th> 
-<th class='cursor_n_resize'> {{ item.request_date}} </th> 
-<th class='cursor_n_resize'> {{ item.desctiption}} </th> 
-                                        <td>
-                                            {{ item.status }}
-                                        </td>
-                                        <td>
-                                            <div class="table_actions">
-                                                <a @click.prevent="" href="#" class="btn btn-sm btn-outline-secondary"><i
-                                                        class="fa fa-gears"></i></a>
-                                                <ul>
-                                                    <!-- <li>
+                                    <td>{{ item.id }}</td>
+                                    <th class='cursor_n_resize'> {{ item.asset?.title }} </th>
+                                    <th class='cursor_n_resize'> {{ item.sender_id }} </th>
+                                    <th class='cursor_n_resize'> {{ item.receiver_id }} </th>
+                                    <th class='cursor_n_resize'> {{ item.is_accepted_by_receiver }} </th>
+                                    <th class='cursor_n_resize'> {{ item.accepted_date }} </th>
+                                    <th class='cursor_n_resize'> {{ item.request_date }} </th>
+                                    <th class='cursor_n_resize'> {{ item.desctiption }} </th>
+                                    <td>
+                                        {{ item.status }}
+                                    </td>
+                                    <td>
+                                        <div class="table_actions">
+                                            <a @click.prevent="" href="#" class="btn btn-sm btn-outline-secondary"><i
+                                                    class="fa fa-gears"></i></a>
+                                            <ul>
+                                                <!-- <li>
                                                         <a href="">
                                                             <i
                                                                 class="fa text-info fa-eye"
@@ -122,7 +125,7 @@
                                                             Quick View
                                                         </a>
                                                     </li> -->
-                                                    <!-- <li>
+                                                <!-- <li>
                                                         <span>
                                                             <a
                                                                 href="#/user/details/43"
@@ -136,118 +139,118 @@
 
                                                         </span>
                                                     </li> -->
-                                                    <li>
-                                                        <span>
-                                                            <router-link :to="{
-                                                                name: `Create${route_prefix}`,
-                                                                query: {
-                                                                    id: item.id,
-                                                                },
-                                                            }" class="">
-                                                                <i class="fa text-warning fa-pencil"></i>
-                                                                Edit
-                                                            </router-link>
-                                                            <!---->
-                                                        </span>
-                                                    </li>
-                                                    <li>
-                                                        <span>
-                                                            <a @click.prevent="
-                                                                delete_data(
-                                                                    item.id
-                                                                )
-                                                                " href="#" class="">
-                                                                <i class="fa text-danger fa-trash"></i>
-                                                                Delete
-                                                            </a>
-                                                        </span>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="card-footer py-1 border-top-0 d-flex justify-content-between border border-1">
-                            <pagination :data="all_data" :method="get_all_data" />
-                            <div class="float-right">
-                                <div class="show-limit d-inline-block">
-                                    <span>Limit:</span>
-                                    <select class="" v-model="offset">
-                                        <option value="5">5</option>
-                                        <option value="10">10</option>
-                                        <option value="25">25</option>
-                                        <option value="50">50</option>
-                                        <option value="100">100</option>
-                                    </select>
-                                </div>
-                                <div class="show-limit d-inline-block">
-                                    <span>Total:</span>
-                                    <span>{{ all_data.total }}</span>
-                                </div>
+                                                <li>
+                                                    <span>
+                                                        <router-link :to="{
+                            name: `Create${route_prefix}`,
+                            query: {
+                                id: item.id,
+                            },
+                        }" class="">
+                                                            <i class="fa text-warning fa-pencil"></i>
+                                                            Edit
+                                                        </router-link>
+                                                        <!---->
+                                                    </span>
+                                                </li>
+                                                <li>
+                                                    <span>
+                                                        <a @click.prevent="
+                            delete_data(
+                                item.id
+                            )
+                            " href="#" class="">
+                                                            <i class="fa text-danger fa-trash"></i>
+                                                            Delete
+                                                        </a>
+                                                    </span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card-footer py-1 border-top-0 d-flex justify-content-between border border-1">
+                        <pagination :data="all_data" :method="get_all_data" />
+                        <div class="float-right">
+                            <div class="show-limit d-inline-block">
+                                <span>Limit:</span>
+                                <select class="" v-model="offset">
+                                    <option value="5">5</option>
+                                    <option value="10">10</option>
+                                    <option value="25">25</option>
+                                    <option value="50">50</option>
+                                    <option value="100">100</option>
+                                </select>
+                            </div>
+                            <div class="show-limit d-inline-block">
+                                <span>Total:</span>
+                                <span>{{ all_data.total }}</span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
 
-            </template>
+</template>
 
-            <script>
-            import { mapActions, mapState } from 'pinia'
-            import { asset_transfer_setup_store } from './setup/store';
-            import setup from "./setup";
-            export default {
-                data: () => ({
-                    route_prefix: '',
-                    page_title: '',
-                    parent_item: false,
-                    offset:5,
-                    loaded:false,
-                    search_data:'',
-                    child_items: []
-                }),
-                created: async function () {
-                    this.route_prefix = setup.route_prefix;
-                    this.page_title = setup.page_title;
-                    await this.get_all_data()
-                    this.loaded = true
-                },
-                methods: {
-                    ...mapActions(asset_transfer_setup_store, {
-                        get_all_data: 'all',
-                        delete_data: 'delete',
-                        bulk_action: 'bulk_action',
-                    }),
-                    toggleParentCheckbox() {
-                        this.child_items = event.target.checked ? this.all_data.data.map(item => item.id) : []
-                    },
+<script>
+import { mapActions, mapState } from 'pinia'
+import { asset_transfer_setup_store } from './setup/store';
+import setup from "./setup";
+export default {
+    data: () => ({
+        route_prefix: '',
+        page_title: '',
+        parent_item: false,
+        offset: 5,
+        loaded: false,
+        search_data: '',
+        child_items: []
+    }),
+    created: async function () {
+        this.route_prefix = setup.route_prefix;
+        this.page_title = setup.page_title;
+        await this.get_all_data()
+        this.loaded = true
+    },
+    methods: {
+        ...mapActions(asset_transfer_setup_store, {
+            get_all_data: 'all',
+            delete_data: 'delete',
+            bulk_action: 'bulk_action',
+        }),
+        toggleParentCheckbox() {
+            this.child_items = event.target.checked ? this.all_data.data.map(item => item.id) : []
+        },
 
-                    toggleChildCheckbox(id) {
-                        let isChecked = event.target.checked
-                        if (isChecked) {
-                            this.child_items.push(id)
-                        } else {
-                            this.child_items = this.child_items.filter(item => item != id)
-                        }
-
-                    },
-                    bulkActions(action) {
-                        this.bulk_action(action, this.child_items)
-                        this.parent_item = false
-                        this.child_items = []
-                    }
-
-                },
-                computed: {
-                    ...mapState(asset_transfer_setup_store, {
-                        all_data: 'all_data',
-                    })
-                }
+        toggleChildCheckbox(id) {
+            let isChecked = event.target.checked
+            if (isChecked) {
+                this.child_items.push(id)
+            } else {
+                this.child_items = this.child_items.filter(item => item != id)
             }
-            </script>
 
-            <style></style>
+        },
+        bulkActions(action) {
+            this.bulk_action(action, this.child_items)
+            this.parent_item = false
+            this.child_items = []
+        }
+
+    },
+    computed: {
+        ...mapState(asset_transfer_setup_store, {
+            all_data: 'all_data',
+        })
+    }
+}
+</script>
+
+<style></style>

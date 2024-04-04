@@ -19,6 +19,11 @@ import asset_history_routes from "../management/AssetManagement/AssetChangeHisto
 import asset_item_routes from "../management/AssetManagement/AssetItem/setup/routes";
 import asset_shop_list_routes from "../management/AssetManagement/AssetShopList/setup/routes";
 import asset_waranty_routes from "../management/AssetManagement/AssetWaranty/setup/routes";
+import asset_quotation_product_routes from "../management/AssetManagement/AssetQuotations/Product/setup/routes";
+import asset_quotation_product_price_routes from "../management/AssetManagement/AssetQuotations/ProductPrice/setup/routes";
+import asset_quotation_routes from "../management/AssetManagement/AssetQuotations/Quotation/setup/routes";
+import asset_request_to_cp_routes from "../management/AssetManagement/AssetRequestToCp/setup/routes";
+import asset_transfer_routes from "../management/AssetManagement/AssetTransfer/setup/routes";
 
 const routes = {
     path: "bm-manager",
@@ -47,6 +52,11 @@ const routes = {
         asset_shop_list_routes,
         asset_waranty_routes,
         asset_audit_list_routes,
+        asset_quotation_product_routes,
+        asset_quotation_product_price_routes,
+        asset_quotation_routes,
+        asset_request_to_cp_routes,
+        asset_transfer_routes,
     ],
 };
 

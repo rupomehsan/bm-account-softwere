@@ -5,6 +5,7 @@ export const asset_waranty_setup_store = defineStore("asset_waranty_setup_store"
         all_data: {},
         single_data: {},
         role_data: {},
+        all_asset_data: {},
         api:"asset-waranties"
     }),
     getters: {
@@ -59,7 +60,11 @@ export const asset_waranty_setup_store = defineStore("asset_waranty_setup_store"
 
         // additional function
         // additional function
-
+        get_all_asset: async function () {
+            let response = await axios.get(`assets?get_all=1`);
+            response = response.data.data;
+            this.all_asset_data = response;
+        },
 
     },
 });

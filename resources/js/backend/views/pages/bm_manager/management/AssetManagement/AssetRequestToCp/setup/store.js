@@ -5,7 +5,9 @@ export const asset_request_to_cp_setup_store = defineStore("asset_request_to_cp_
         all_data: {},
         single_data: {},
         role_data: {},
-        api:"asset-request-to-cps"
+        all_asset_data: {},
+        all_asset_quotation_data: {},
+        api: "asset-request-to-cps"
     }),
     getters: {
         doubleCount: (state) => state.count * 2,
@@ -59,7 +61,16 @@ export const asset_request_to_cp_setup_store = defineStore("asset_request_to_cp_
 
         // additional function
         // additional function
-
+        get_all_asset: async function () {
+            let response = await axios.get(`assets?get_all=1`);
+            response = response.data.data;
+            this.all_asset_data = response;
+        },
+        get_all_asset_quotation: async function () {
+            let response = await axios.get(`quotations?get_all=1`);
+            response = response.data.data;
+            this.all_asset_quotation_data = response;
+        },
 
     },
 });

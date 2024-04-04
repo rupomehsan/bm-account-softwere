@@ -43,7 +43,7 @@ class Validation extends FormRequest
     {
         return [
             'title' => 'required | sometimes',
-            'desciption' => 'required | sometimes',
+            'desciption' => ' sometimes',
             'parent' => 'required | sometimes',
             'image' => 'required | sometimes',
             'status' => ['sometimes', Rule::in(['active', 'inactive'])],

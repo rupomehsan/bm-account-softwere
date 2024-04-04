@@ -5,7 +5,7 @@ export const asset_change_history_setup_store = defineStore("asset_change_histor
         all_data: {},
         single_data: {},
         role_data: {},
-        api:"asset-change-histories"
+        api: "asset-change-histories"
     }),
     getters: {
         doubleCount: (state) => state.count * 2,
@@ -60,6 +60,10 @@ export const asset_change_history_setup_store = defineStore("asset_change_histor
         // additional function
         // additional function
 
-
+        get_all_asset: async function () {
+            let response = await axios.get(`assets?get_all=1`);
+            response = response.data.data;
+            this.all_asset_data = response;
+        },
     },
 });

@@ -1,9 +1,10 @@
 export default [
 	{
 		name: "asset_quotation_id",
-		label: "Enter your asset_quotation_id",
-		type: "number",
+		label: "select asset quotation",
+		type: "select",
 		value: "",
+        data_list: [],
 	},
 
 	{

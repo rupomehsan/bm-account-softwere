@@ -81,6 +81,9 @@
                                         ID
                                     </th>
                                     <th class="cursor_n_resize">
+                                        asset
+                                    </th>
+                                    <th class="cursor_n_resize">
                                         title
                                     </th>
                                     <th class="cursor_n_resize">
@@ -103,6 +106,9 @@
                                             <input type="checkbox" class="form-check-input" />
                                         </td> -->
                                     <td>{{ item.id }}</td>
+                                    <td>
+                                        {{ item.asset?.title }}
+                                    </td>
                                     <td>
                                         {{ item.title }}
                                     </td>

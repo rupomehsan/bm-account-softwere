@@ -16,7 +16,7 @@ return new class extends Migration
             $table->id();
             $table->bigInteger('asset_id')->nullable();
             $table->bigInteger('asset_audit_id')->nullable();
-            $table->enum('is_ok',['value1','value2'])->nullable();
+            $table->enum('is_ok', ['yes', 'no'])->nullable();
             $table->text('comment')->nullable();
 
             $table->bigInteger('creator')->unsigned()->nullable();

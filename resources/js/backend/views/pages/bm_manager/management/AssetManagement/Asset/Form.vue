@@ -47,6 +47,8 @@
                             </button>
                         </div>
 
+
+
                     </form>
                 </div>
             </div>
@@ -70,6 +72,7 @@ export default {
         let id = this.$route.query.id;
         this.route_prefix = setup.route_prefix;
         await this.get_all_data()
+        await this.get_all_asset_quotation()
         if (id) {
             this.param_id = id;
             await this.get_single_data(id);
@@ -79,8 +82,6 @@ export default {
                         if (field.name == value[0]) {
                             this.form_fields[index].value = value[1];
                         }
-
-
                     });
                 });
             }
@@ -91,6 +92,20 @@ export default {
                 }
             });
         }
+
+        if (this.asset_quotation_data) {
+            this.form_fields.forEach((field, index) => {
+                if (field.name == 'cs_quotation_id') {
+                    field.data_list = []
+                    this.asset_quotation_data.forEach((value) => {
+                        let dataList = {}
+                        dataList.value = value.id
+                        dataList.label = value.title
+                        field.data_list.push(dataList)
+                    })
+                }
+            });
+        }
     },
     methods: {
         ...mapActions(asset_setup_store, {
@@ -98,9 +113,12 @@ export default {
             get_single_data: 'get',
             store_data: 'store',
             update_data: 'update',
+
+            get_all_asset_quotation: 'get_all_asset_quotation',
         }),
 
         submitHandler: async function ($event) {
+
             if (this.param_id) {
                 let response = await this.update_data($event.target, this.param_id);
                 if (response.data.status === "success") {
@@ -115,14 +133,13 @@ export default {
                 }
             }
         },
-
-
     },
 
     computed: {
         ...mapState(asset_setup_store, {
             single_data: "single_data",
             all_data: 'all_data',
+            asset_quotation_data: 'asset_quotation_data',
         }),
     },
 

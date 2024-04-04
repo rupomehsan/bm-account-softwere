@@ -15,6 +15,10 @@ class Update
                 return messageResponse('Data not found...', 404, 'error');
             }
             $requestData = $request->validated();
+            if ($request->hasFile('quotation_image')) {
+                $image = $request->file('quotation_image');
+                $requestData['quotation_image'] = uploader($image, 'uploads/asset');
+            }
             $data->update($requestData);
             return messageResponse('Item updated successfully');
         } catch (\Exception $e) {

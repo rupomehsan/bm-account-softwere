@@ -5,7 +5,8 @@ export const product_setup_store = defineStore("product_setup_store", {
         all_data: {},
         single_data: {},
         role_data: {},
-        api:"products"
+        asset_quotation_data: {},
+        api: "products"
     }),
     getters: {
         doubleCount: (state) => state.count * 2,
@@ -59,7 +60,11 @@ export const product_setup_store = defineStore("product_setup_store", {
 
         // additional function
         // additional function
-
+        get_all_asset_quotation: async function () {
+            let response = await axios.get(`quotations?get_all=1`);
+            response = response.data.data;
+            this.asset_quotation_data = response;
+        },
 
     },
 });

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('title')->nullable();
             $table->string('quotation_image')->nullable();
             $table->tinyInteger('is_approved')->nullable();
-            $table->enum('request_type',['value1','value2'])->nullable();
+            $table->enum('request_type', ['remove', 'purchase'])->nullable();
 
             $table->bigInteger('creator')->unsigned()->nullable();
             $table->string('slug', 50)->nullable();

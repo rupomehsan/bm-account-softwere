@@ -110,7 +110,7 @@
                                         </td> -->
                                     <td>{{ item.id }}</td>
                                     <td>
-                                        {{ item.asset_id }}
+                                        {{ item.asset?.title }}
                                     </td>
                                     <td>
                                         {{ item.column_name }}

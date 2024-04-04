@@ -13,6 +13,10 @@ class Store
     {
         try {
             $requestData = $request->validated();
+            if ($request->hasFile('quotation_image')) {
+                $image = $request->file('quotation_image');
+                $requestData['quotation_image'] = uploader($image, 'uploads/asset');
+            }
             if (self::$model::query()->create($requestData)) {
                 return messageResponse('Item added successfully', 201);
             }

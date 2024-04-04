@@ -5,6 +5,7 @@ export const asset_transfer_setup_store = defineStore("asset_transfer_setup_stor
         all_data: {},
         single_data: {},
         role_data: {},
+        all_asset_data: {},
         api:"asset-transfers"
     }),
     getters: {
@@ -60,6 +61,10 @@ export const asset_transfer_setup_store = defineStore("asset_transfer_setup_stor
         // additional function
         // additional function
 
-
+        get_all_asset: async function () {
+            let response = await axios.get(`assets?get_all=1`);
+            response = response.data.data;
+            this.all_asset_data = response;
+        },
     },
 });

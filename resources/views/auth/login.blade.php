@@ -222,8 +222,9 @@
                     <h3>Login Here</h3>
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" placeholder="Enter your email" name="email" onchange="errorReset(event)" value="admin@gmail.com">
-                        <p class="alert-danger" id="email" ></p>
+                        <input type="email" placeholder="Enter your email" name="email" onchange="errorReset(event)"
+                            value="admin@gmail.com">
+                        <p class="alert-danger" id="email"></p>
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>

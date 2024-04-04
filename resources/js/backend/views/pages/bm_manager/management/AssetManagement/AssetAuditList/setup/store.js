@@ -5,7 +5,9 @@ export const asset_audit_list_setup_store = defineStore("asset_audit_list_setup_
         all_data: {},
         single_data: {},
         role_data: {},
-        api:"asset-audit-lists"
+        all_asset_data: {},
+        all_asset_audit_data: {},
+        api: "asset-audit-lists"
     }),
     getters: {
         doubleCount: (state) => state.count * 2,
@@ -59,7 +61,16 @@ export const asset_audit_list_setup_store = defineStore("asset_audit_list_setup_
 
         // additional function
         // additional function
-
+        get_all_asset: async function () {
+            let response = await axios.get(`assets?get_all=1`);
+            response = response.data.data;
+            this.all_asset_data = response;
+        },
+        get_all_asset_audit: async function () {
+            let response = await axios.get(`asset-audits?get_all=1`);
+            response = response.data.data;
+            this.all_asset_audit_data = response;
+        },
 
     },
 });

@@ -105,10 +105,10 @@
                                         </td> -->
                                     <td>{{ item.id }}</td>
                                     <td>
-                                        {{ item.asset_id }}
+                                        {{ item.asset?.title }}
                                     </td>
                                     <td>
-                                        {{ item.asset_audit_id }}
+                                        {{ item.asset_audit?.title }}
                                     </td>
 
                                     <td>

@@ -66,8 +66,18 @@ export default [
     {
         name: "depreciation_type",
         label: "Enter your depreciation_type",
-        type: "text",
+        type: "select",
         value: "",
+        data_list: [
+            {
+                label: "Percent",
+                value: "percent",
+            },
+            {
+                label: "Flat",
+                value: "flat",
+            },
+        ],
     },
 
 
@@ -96,9 +106,10 @@ export default [
 
     {
         name: "cs_quotation_id",
-        label: "Enter your cs_quotation_id",
-        type: "number",
+        label: "Enter your cs quotation",
+        type: "select",
         value: "",
+        data_list: [],
     },
 
 

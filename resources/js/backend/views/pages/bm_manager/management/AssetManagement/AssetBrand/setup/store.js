@@ -5,7 +5,8 @@ export const asset_brand_setup_store = defineStore("asset_brand_setup_store", {
         all_data: {},
         single_data: {},
         role_data: {},
-        api:"asset-brands"
+        all_asset_data: {},
+        api: "asset-brands"
     }),
     getters: {
         doubleCount: (state) => state.count * 2,
@@ -59,7 +60,11 @@ export const asset_brand_setup_store = defineStore("asset_brand_setup_store", {
 
         // additional function
         // additional function
-
+        get_all_asset: async function () {
+            let response = await axios.get(`assets?get_all=1`);
+            response = response.data.data;
+            this.all_asset_data = response;
+        },
 
     },
 });

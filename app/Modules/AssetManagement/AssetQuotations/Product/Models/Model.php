@@ -7,6 +7,7 @@ use Illuminate\Support\Str;
 
 class Model extends EloquentModel
 {
+    protected static $quotationModel = \App\Modules\AssetManagement\AssetQuotations\Quotation\Models\Model::class;
     protected $table = "products";
     protected $guarded = [];
 
@@ -23,5 +24,10 @@ class Model extends EloquentModel
     public function scopeActive($q)
     {
         return $q->where('status', 'active');
+    }
+
+    public function quotation()
+    {
+        return $this->belongsTo(self::$quotationModel, 'asset_quotation_id', 'id');
     }
 }

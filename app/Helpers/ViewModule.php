@@ -93,7 +93,8 @@ if (!function_exists('viewAll')) {
             EOD;
         if (count($fields)) {
             foreach ($fields as $fieldName) {
-                $content .=  "<th class='cursor_n_resize'>  $fieldName[0] </th> \n";
+                $label = Str::of($fieldName[0])->snake()->replace('_', ' ');
+                $content .=  "<th class='cursor_n_resize'>   $label </th> \n";
             }
         }
         $content .= <<<"EOD"
@@ -114,6 +115,7 @@ if (!function_exists('viewAll')) {
             EOD;
         if (count($fields)) {
             foreach ($fields as $fieldName) {
+
                 $content .=  "<th class='cursor_n_resize'> {{ item.$fieldName[0]}} </th> \n";
             }
         }

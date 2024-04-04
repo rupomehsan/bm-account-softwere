@@ -13,6 +13,7 @@ class Store
     {
         try {
             $requestData = $request->validated();
+            
             if (self::$model::query()->create($requestData)) {
                 return messageResponse('Item added successfully', 201);
             }

@@ -69,7 +69,7 @@ export default {
     created: async function () {
         let id = this.$route.query.id;
         this.route_prefix = setup.route_prefix;
-        await this.get_all_data()
+        await this.get_all_asset()
         if (id) {
             this.param_id = id;
             await this.get_single_data(id);
@@ -87,6 +87,20 @@ export default {
                 if (item.name != 'waranty_date') item.value = "";
             });
         }
+
+        if (this.all_asset_data) {
+            this.form_fields.forEach((field, index) => {
+                if (field.name == 'asset_id') {
+                    field.data_list = []
+                    this.all_asset_data.forEach((value) => {
+                        let dataList = {}
+                        dataList.value = value.id
+                        dataList.label = value.title
+                        field.data_list.push(dataList)
+                    })
+                }
+            });
+        }
     },
     methods: {
         ...mapActions(asset_waranty_setup_store, {
@@ -94,6 +108,8 @@ export default {
             get_single_data: 'get',
             store_data: 'store',
             update_data: 'update',
+
+            get_all_asset: 'get_all_asset',
         }),
 
         submitHandler: async function ($event) {
@@ -119,6 +135,7 @@ export default {
         ...mapState(asset_waranty_setup_store, {
             single_data: "single_data",
             all_data: 'all_data',
+            all_asset_data: 'all_asset_data',
         }),
     },
 

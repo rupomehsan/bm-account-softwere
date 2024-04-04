@@ -191,49 +191,68 @@
                 </a>
                 <ul :class="submenu ? 'menu-open' : ''" class="sidebar-submenu">
                     <li>
-                        <router-link :to="{ name: `AllAssetCategory` }" href="general-widget.html"><i
-                                class="fa fa-angle-right"></i>Category</router-link>
+                        <router-link :to="{ name: `AllAssetCategory` }"><i class="fa fa-angle-right"></i>Asset
+                            Category</router-link>
                     </li>
                     <li>
-                        <router-link :to="{ name: `AllAssetLost` }" href="general-widget.html"><i
-                                class="fa fa-angle-right"></i>Asset lost</router-link>
+                        <router-link :to="{ name: `AllAssetLost` }"><i class="fa fa-angle-right"></i>Asset
+                            lost</router-link>
                     </li>
                     <li>
-                        <router-link :to="{ name: `AllAsset` }" href="general-widget.html"><i
-                                class="fa fa-angle-right"></i>Asset</router-link>
+                        <router-link :to="{ name: `AllAsset` }"><i class="fa fa-angle-right"></i>Asset</router-link>
                     </li>
                     <li>
-                        <router-link :to="{ name: `AllAssetAudit` }" href="general-widget.html"><i
-                                class="fa fa-angle-right"></i>Asset audit</router-link>
-                    </li>
-
-                    <li>
-                        <router-link :to="{ name: `AllAssetAuditList` }" href="general-widget.html"><i
-                                class="fa fa-angle-right"></i>Asset Audit list</router-link>
+                        <router-link :to="{ name: `AllAssetAudit` }"><i class="fa fa-angle-right"></i>Asset
+                            audit</router-link>
                     </li>
 
                     <li>
-                        <router-link :to="{ name: `AllAssetBrand` }" href="general-widget.html"><i
-                                class="fa fa-angle-right"></i>Asset brand</router-link>
+                        <router-link :to="{ name: `AllAssetAuditList` }"><i class="fa fa-angle-right"></i>Asset Audit
+                            list</router-link>
                     </li>
 
                     <li>
-                        <router-link :to="{ name: `AllAssetChangeHistory` }" href="general-widget.html"><i
-                                class="fa fa-angle-right"></i>Asset change history</router-link>
-                    </li>
-                    <li>
-                        <router-link :to="{ name: `AllAssetItem` }" href="general-widget.html"><i
-                                class="fa fa-angle-right"></i>Asset item</router-link>
+                        <router-link :to="{ name: `AllAssetBrand` }"><i class="fa fa-angle-right"></i>Asset
+                            brand</router-link>
                     </li>
 
                     <li>
-                        <router-link :to="{ name: `AllAssetShopList` }" href="general-widget.html"><i
-                                class="fa fa-angle-right"></i>Asset shop list</router-link>
+                        <router-link :to="{ name: `AllAssetChangeHistory` }"><i class="fa fa-angle-right"></i>Asset
+                            change history</router-link>
+                    </li>
+                    <li>
+                        <router-link :to="{ name: `AllAssetItem` }"><i class="fa fa-angle-right"></i>Asset
+                            item</router-link>
                     </li>
 
                     <li>
-                        <router-link :to="{ name: `AllAssetWaranty` }" href="general-widget.html"><i
-                                class="fa fa-angle-right"></i>Asset waranty</router-link>
+                        <router-link :to="{ name: `AllAssetShopList` }"><i class="fa fa-angle-right"></i>Asset shop
+                            list</router-link>
+                    </li>
+
+                    <li>
+                        <router-link :to="{ name: `AllAssetWaranty` }"><i class="fa fa-angle-right"></i>Asset
+                            waranty</router-link>
+                    </li>
+                    <li>
+                        <router-link :to="{ name: `AllQuotation` }"><i class="fa fa-angle-right"></i>Asset
+                            quotation</router-link>
+                    </li>
+                    <li>
+                        <router-link :to="{ name: `AllProduct` }"><i class="fa fa-angle-right"></i>Asset quotation
+                            product</router-link>
+                    </li>
+                    <li>
+                        <router-link :to="{ name: `AllProductPrice` }"><i class="fa fa-angle-right"></i>Asset product
+                            price</router-link>
+                    </li>
+                    <li>
+                        <router-link :to="{ name: `AllAssetRequestToCp` }"><i class="fa fa-angle-right"></i>Asset
+                            request to cp</router-link>
+                    </li>
+                    <li>
+                        <router-link :to="{ name: `AllAssetTransfer` }"><i class="fa fa-angle-right"></i>Asset
+                            transfer</router-link>
                     </li>
                 </ul>
             </li>
@@ -245,18 +264,18 @@
                 </a>
                 <ul class="menu-open sidebar-submenu">
                     <li>
-                        <router-link :to="{ name: `bmMainLedger` }" href="general-widget.html">
+                        <router-link :to="{ name: `bmMainLedger` }">
                             <i class="fa fa-angle-right"></i>Cash Book</router-link>
                     </li>
                     <li>
-                        <router-link :to="{ name: `bmIncomeLedger` }" href="general-widget.html">
+                        <router-link :to="{ name: `bmIncomeLedger` }">
                             <i class="fa fa-angle-right"></i>Income Ledger</router-link>
                     </li>
                     <!--
                     <li>
                         <router-link
                             :to="{ name: `bmLoanRegister` }"
-                            href="general-widget.html"
+
                         >
                             <i class="fa fa-angle-right"></i>Loan
                             Register</router-link
@@ -265,7 +284,7 @@
                     <li>
                         <router-link
                             :to="{ name: `bmJamanot` }"
-                            href="general-widget.html"
+
                         >
                             <i class="fa fa-angle-right"></i
                             >Jamanot</router-link
@@ -274,7 +293,7 @@
                     <li>
                         <router-link
                             :to="{ name: `bmOfficeRent` }"
-                            href="general-widget.html"
+
                         >
                             <i class="fa fa-angle-right"></i>Office
                             Rent</router-link
@@ -283,22 +302,22 @@
                     <li>
                         <router-link
                             :to="{ name: `bmHouseRent` }"
-                            href="general-widget.html"
+
                         >
                             <i class="fa fa-angle-right"></i>House
                             Rent</router-link
                         >
                     </li> -->
-                    <!-- <li><router-link :to="{ name: `bmAssetList` }" href="general-widget.html">
+                    <!-- <li><router-link :to="{ name: `bmAssetList` }" >
                             <i class="fa fa-angle-right"></i>Asset List</router-link></li>
-                    <li><router-link :to="{ name: `bmBMStockRegister` }" href="general-widget.html">
+                    <li><router-link :to="{ name: `bmBMStockRegister` }" >
                             <i class="fa fa-angle-right"></i>BM Stock Register</router-link></li>
-                    <li><router-link :to="{ name: `bmAssetRegister` }" href="general-widget.html">
+                    <li><router-link :to="{ name: `bmAssetRegister` }" >
                             <i class="fa fa-angle-right"></i>Asset Register</router-link></li> -->
                     <!-- <li>
                         <router-link
                             :to="{ name: `bmEkkalinProdan` }"
-                            href="general-widget.html"
+
                         >
                             <i class="fa fa-angle-right"></i>Ekkalin
                             Prodan</router-link
@@ -307,7 +326,7 @@
                     <li>
                         <router-link
                             :to="{ name: `bmNiyomitoProdan` }"
-                            href="general-widget.html"
+
                         >
                             <i class="fa fa-angle-right"></i>Niyomito
                             Prodan</router-link
@@ -316,7 +335,7 @@
                     <li>
                         <router-link
                             :to="{ name: `bmKendriyoSuvakankhiThekeAy` }"
-                            href="general-widget.html"
+
                         >
                             <i class="fa fa-angle-right"></i>Kendriyo Suvakankhi
                             ThekeAy</router-link

@@ -7,6 +7,8 @@ use Illuminate\Support\Str;
 
 class Model extends EloquentModel
 {
+    protected static $assetModel = \App\Modules\AssetManagement\Asset\Models\Model::class;
+
     protected $table = "asset_brands";
     protected $guarded = [];
 
@@ -23,5 +25,9 @@ class Model extends EloquentModel
     public function scopeActive($q)
     {
         return $q->where('status', 'active');
+    }
+    public function asset()
+    {
+        return $this->belongsTo(self::$assetModel, 'asset_id', 'id');
     }
 }

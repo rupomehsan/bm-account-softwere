@@ -368,6 +368,9 @@ a:hover {
 .p-l-50 {
   padding-left: 50px;
 }
+.cursor_n_resize{
+  text-transform: capitalize;
+}
 
 /*====== Padding-left css ends ======*/
 /*====== Padding-top css starts ======*/

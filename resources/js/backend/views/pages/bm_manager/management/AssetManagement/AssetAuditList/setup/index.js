@@ -1,5 +1,5 @@
 let setup = {
-    page_title: `AssetAuditList Management`,
+    page_title: `Asset Audit List Management`,
     route_prefix: `AssetAuditList`,
 }
 export default setup;
