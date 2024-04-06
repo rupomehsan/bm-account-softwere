@@ -14,7 +14,9 @@ if (!function_exists('viewAll')) {
                         <div class="page-header my-2">
                             <div class="row align-items-center rounded-2 justify-content-between">
                                 <div class="col-lg-4">
-                                    <h5 class="m-0 text-capitalize"> {{ page_title }}</h5>
+                                    <h5 class="m-0 text-capitalize">
+                                    {{ page_title }}
+                                    </h5>
                                 </div>
                                 <div v-if="child_items.length" class="btn-group m-1 col-lg-4"
                                      onclick="document.getElementById('table-actions').classList.toggle('show')">
@@ -288,8 +290,8 @@ if (!function_exists('viewForm')) {
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <h6>
-                                            {{ param_id ? 'Update' : 'Create' }} new <span class="text-lowercase">{{ route_prefix
-                                            }}</span>
+                                            {{ param_id ? 'Update' : 'Create' }} new <span class="text-lowercase">
+                                            {{ route_prefix.replace(/([a-z])([A-Z])/g, '$1 $2')}}</span>
                                         </h6>
                                     </div>
                                     <div class="col-lg-6 text-end">
@@ -493,7 +495,7 @@ if (!function_exists('ViewIndex')) {
 
         $content = <<<"EOD"
         let setup = {
-            page_title: `{$prefix} Management`,
+            page_title: `{/$prefix.replace(/([a-z])([A-Z])/g, '$1 $2')} Management`,
             route_prefix: `{$prefix}`,
         }
         export default setup;
